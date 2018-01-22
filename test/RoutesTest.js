@@ -15,14 +15,12 @@ const apiUri = '/'
   + configs.apiVersion
 
 describe('RoutesTest:', function () {
-  it('should return a mongodb object', function (done) {
+  it('/text should return a 200', function (done) {
     chai.request(app)
-      .get(apiUri)
+      .get(apiUri + '/text')
       .end(function (err, res) {
         setTimeout(function(){
-          assert.ok(res.body._id)
-          assert.ok(res.body.category)
-          assert.ok(res.body.name)
+          assert.equal(res.status, 200)
           done()
         }, 1500)
       })

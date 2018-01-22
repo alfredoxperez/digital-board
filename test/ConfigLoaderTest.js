@@ -9,6 +9,7 @@ describe('ConfigLoader:', function () {
   it('Verify loaded configs', function () {
     cl.loadConfigs(require('../config/test'))
     cl.loadConfigs(require('../config/default'))
+    cl.loadConfigs(require('../config/mongodb'))
     const configs = cl.getConfigs()
 
     assert.deepEqual(
@@ -16,7 +17,8 @@ describe('ConfigLoader:', function () {
       merge(
         require('../config/default'), 
         require('../config/test'),
-        require('../config/mongodb')))
+        require('../config/mongodb'),
+        require('../config/digitalboard')))
   })
 
   it('Verify updated configs', function () {
@@ -32,6 +34,7 @@ describe('ConfigLoader:', function () {
         require('../config/default'), 
         require('../config/test'),
         require('../config/mongodb'),
+        require('../config/digitalboard'),
         config2))
   })
 })
