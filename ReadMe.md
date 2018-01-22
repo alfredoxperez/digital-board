@@ -1,5 +1,5 @@
 # digital board
-'digital-board' is a RESTful web app using express js. This is meant as a template for web server apps. 
+'digital-board' is a simple web app to share text to anyone connected to the app.  It is meant to be placed behind a home router as a local network digital board where anyone connected to the network can write on the board and read its contents.
 
 Features include:
  - MongoDb connection class
@@ -69,38 +69,26 @@ Example Usage:
 tail -f ./logs/digital-board.log | ./node_modules/.bin/bunyan
 ```
 
+
+---
+# Digital Board UI:
+```
+http://localhost:3000/
+```
+![](doc/console.jpeg?raw=true)
+
+
 ---
 # API Manual Examples
-GET data:
+GET data (all board entries)
 ```
-curl -v  'http://localhost:3000/digital-board/api/1.0/'
-```
-
-POST data:
-```
-curl -v -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"name":"myJsonNam, "category":"myJsonCategory"}' 'http://localhost:3000/digital-board/api/1.0/'
+http://localhost:3000/digital-board/api/1.0/text
 ```
 
 
+POST data (board entry):
+```
+curl -v -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"inputText":"myText}' 'http://localhost:3000/digital-board/api/1.0/text'
+```
 
-MIT License
 
-Copyright (c) 2017 Alfredo Perez
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
