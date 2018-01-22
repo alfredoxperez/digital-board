@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>digital-board</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="js/socket.io.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/digital-board-logic.js"></script>
+</head>
+<body>
+  <input id="new-text-input" type="text" size="50" onKeyPress='checkEnter(event)'/>
+  <input id="new-text-submit-button" type='button' value='add a note...' onClick='submitText()' />
+  <select id="digital-board" size="20" style="width: 100%"></select>
+</body>
+</html>
