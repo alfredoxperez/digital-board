@@ -4,7 +4,7 @@
     "category": "String",
     "date": "Date"
   },
-  "loadSampleRecords": true,
+  "loadSampleRecords": false,
   "mongodbResponseTemplate": {
     "success": false,
     "duplicate": false
