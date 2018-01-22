@@ -8,7 +8,7 @@ socket.on('connect', () => {
     data: '',
     success: function (data) {
       data.forEach(d => 
-        $('#digital-board').prepend('<option>' + d + '</option>'))
+        $('#digital-board').val(d + '\n' + $('#digital-board').val()))
     },
     error: function (xhr, ajaxOptions, thrownError) {
       console.log("digital-board-logic.js: error: ", xhr.statusText)
@@ -17,17 +17,9 @@ socket.on('connect', () => {
 })
 
 socket.on('outboundDigitalboardSocket', data => 
-  $('#digital-board').prepend('<option>' + data + '</option>'))
+  $('#digital-board').val(data + '\n' + $('#digital-board').val()))
 
 
-// function checkEnter() {
-//   $('#new-text-input').keyup(function(event) {
-//     console.log("FOO")
-//     if(event.keyCode === 13) {
-//       $('#new-text-submit-button').click()
-//     }
-//   })
-// }
 function checkEnter(e){ //e is event object passed from function invocation
   let characterCode //literal character code will be stored in this variable
   
