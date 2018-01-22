@@ -31,7 +31,8 @@
     "random-number": "0.0.9",
     "request": "2.81.0",
     "request-promise": "4.2.2",
-    "wrench": "~1.5.8"
+    "wrench": "~1.5.8",
+    "socket.io": "2.0.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
