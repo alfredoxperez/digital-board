@@ -2,27 +2,39 @@
 'use strict'
 const express = require('express')
 const router = express.Router()
-const mongoDbService = require('../modules/MongoDbService')
+const DigitalBoardService  = require('../modules/DigitalBoardService')
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.setHeader('Content-Type', 'application/json')
-  mongoDbService.getRandom().then(function (result) {
-    res.send(result)
-  })
+
+/**
+ * Front End...
+ */
+//GET: http://localhost:3000/
+router.get('/', function(req, res){
+  res.sendFile('index.html', {root: './public'})
 })
 
-/* POST home page. */
-router.post('/', function (req, res, next) {
+
+/**
+ * API...
+ */
+//GET: http://localhost:3000/digital-board/api/1.0/text
+router.get('/text', function(req, res){
   res.setHeader('Content-Type', 'application/json')
-  try{
-    mongoDbService.addRecord(
-      req.body.name, 
-      req.body.category)
+  res.status(200)
+  res.send(DigitalBoardService.getAll().map(dbi => dbi.boardText))
+})
+
+
+//PUT: http://localhost:3000/digital-board/api/1.0/text
+router.put('/text', function(req, res, next) {
+  res.setHeader('Content-Type', 'application/json')
+  if(req.body && req.body.inputText) {
+    DigitalBoardService.updateDigitalBoard(req.body.inputText)
     res.sendStatus(200)
-  } catch (erro) {
-    res.sendStatus(500)
+  } else {
+    res.sendStatus(400)
   }
 })
+
 
 module.exports = router
