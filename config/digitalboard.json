@@ -1,0 +1,9 @@
+{
+  "DigitalBoardItemTemplate": {
+    "user": "",
+    "dateTime": "",
+    "boardText": "",
+    "isDone": false,
+    "deleted": false
+  }
+}

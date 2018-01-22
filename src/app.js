@@ -13,6 +13,7 @@ const configDefault = require('../config/default')
 const configTest = require('../config/test')
 const configDev = require('../config/development')
 const configProd = require('../config/production')
+const configDigitalBoard = require('../config/digitalboard')
 const wrench = require('wrench')
 const app = express()
 
@@ -28,7 +29,7 @@ app.set('view engine', 'jade')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static('public'))
 
 /**
  * Configure middleware for all module resources.
@@ -54,7 +55,7 @@ function setupRoutes(){
 if (app.get('env') === 'production') {
   // production error handler
   // no stacktraces leaked to user
-  configLoader.loadConfigs(configDefault, configProd)
+  configLoader.loadConfigs(configDefault, configProd, configDigitalBoard)
   setupRoutes()
   app.use(function (err, req, res, next) {
     res.status(err.status || 500)
@@ -69,7 +70,7 @@ if (app.get('env') === 'production') {
   app.use(logger('dev'))
   // development error handler
   // will print stacktrace
-  configLoader.loadConfigs(configDefault, configDev)
+  configLoader.loadConfigs(configDefault, configDev, configDigitalBoard)
   setupRoutes()
   app.use(function (err, req, res, next) {
     res.status(err.status || 500)
@@ -83,7 +84,7 @@ if (app.get('env') === 'production') {
 } else {
   // test error handler
   // will print stacktrace
-  configLoader.loadConfigs(configDefault, configTest)
+  configLoader.loadConfigs(configDefault, configTest, configDigitalBoard)
   setupRoutes()
   app.use('/test', require('../test/routes/index'))
   app.use(function (err, req, res, next) {
