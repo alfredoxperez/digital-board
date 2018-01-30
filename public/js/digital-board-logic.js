@@ -20,19 +20,25 @@ socket.on('outboundDigitalboardSocket', data =>
   $('#digital-board').val(data + '\n' + $('#digital-board').val()))
 
 
-function checkEnter(e){ //e is event object passed from function invocation
-  let characterCode //literal character code will be stored in this variable
+function checkEnter(e){ 
+  //e is event object passed from function invocation
+  //literal character code will be stored in this variable
+  let characterCode 
   
-  if(e && e.which){ //if which property of event object is supported (NN4)
+  //if which property of event object is supported (NN4)
+  if(e && e.which){ 
     e = e
-    characterCode = e.which //character code is contained in NN4's which property
+    //character code is contained in NN4's which property
+    characterCode = e.which 
   } else {
     e = event
-    characterCode = e.keyCode //character code is contained in IE's keyCode property
+    //character code is contained in IE's keyCode property
+    characterCode = e.keyCode 
   }
   
-  if(characterCode == 13){ //if generated character code is equal to ascii 13 (if enter key)
-    $('#new-text-submit-button').click()
+  //13 = enter key
+  if(characterCode == 13){ 
+    submitText()
     return false
   } else{
     return true
