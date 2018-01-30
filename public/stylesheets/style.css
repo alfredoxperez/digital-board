@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 15px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -13,5 +13,5 @@ a {
 }
 
 #new-text-input {
-  width: 100%;
+  width: 99.5%;
 }
