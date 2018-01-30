@@ -1,7 +1,7 @@
 {
   "name": "digital-board",
   "version": "1.0.0",
-  "description": "An express js mongodb template app with eslint and flow.",
+  "description": "A local network digital white-board, like for your fridge",
   "author": "Alfredo Perez",
   "private": true,
   "scripts": {
@@ -48,7 +48,7 @@
     "eslint-plugin-node": "5.2.0",
     "eslint-plugin-promise": "3.6.0",
     "eslint-plugin-standard": "3.0.1",
-    "flow-bin": "0.56.0",
+    "flow-bin": "0.63.1",
     "mocha": "3.5.3"
   }
 }
