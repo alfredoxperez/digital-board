@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+#digital-board {
+  width: 100%;
+  resize: none; 
+}
+
+#new-text-input {
+  width: 100%;
+}
