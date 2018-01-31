@@ -1,5 +1,5 @@
-# digital board
-'digital-board' is a simple web app to share text to anyone connected to the app.  It is meant to be placed behind a home router as a local network digital board where anyone connected to the network can write on the board and read its contents.
+# digital-board
+'digital-board' is a simple web app to share text to anyone connected to the app.  It is meant to be placed behind a home router as a local network digital board where anyone connected to the network can write on the board and read its contents.  If a note is completed or no longer needed a user can double click on it and the text will become crossed out.
 
 ---
 # Digital Board UI:
