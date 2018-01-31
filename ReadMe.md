@@ -1,12 +1,12 @@
 # digital board
 'digital-board' is a simple web app to share text to anyone connected to the app.  It is meant to be placed behind a home router as a local network digital board where anyone connected to the network can write on the board and read its contents.
 
-Features include:
- - MongoDb connection class
- - Logging with Bunyan
- - Flow for type checking
- - eslint
- - Scripts for various build stages
+---
+# Digital Board UI:
+```
+http://localhost:3000/
+```
+![](doc/console.jpeg?raw=true)
 
 ---
 # Lastest Environment Versions Used:
@@ -68,14 +68,6 @@ Example Usage:
 ```
 tail -f ./logs/digital-board.log | ./node_modules/.bin/bunyan
 ```
-
-
----
-# Digital Board UI:
-```
-http://localhost:3000/
-```
-![](doc/console.jpeg?raw=true)
 
 
 ---
